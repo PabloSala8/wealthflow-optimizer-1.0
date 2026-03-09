@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}WealthFlow Optimizer — Upload Portfolio{% endblock %}
+{% block content %}
+<div class="hero-section">
+  <h1 class="hero-title">Stop Leaking Money to Your Broker</h1>
+  <p class="hero-subtitle">Upload your portfolio CSV and discover how much you're losing in hidden fees &amp; suboptimal cash sweep rates.</p>
+</div>
+
+<div class="upload-container">
+  <div class="upload-card" id="uploadCard">
+    <div class="drop-zone" id="dropZone">
+      <div class="drop-icon">&#8679;</div>
+      <p class="drop-label">Drag &amp; drop your portfolio CSV</p>
+      <p class="drop-sub">or</p>
+      <label class="btn btn-secondary" for="fileInput">Browse Files</label>
+      <input type="file" id="fileInput" accept=".csv" hidden />
+    </div>
+    <div class="file-preview" id="filePreview" style="display:none">
+      <span class="file-icon">&#128196;</span>
+      <span id="fileName" class="file-name"></span>
+      <button class="btn-icon" id="removeFile" title="Remove">&#10005;</button>
+    </div>
+  </div>
+
+  <div class="broker-section">
+    <label class="form-label" for="brokerSelect">Your Current Broker</label>
+    <select class="form-select" id="brokerSelect">
+      <option value="">— Select your broker —</option>
+      {% for broker in brokers %}
+      <option value="{{ broker.id }}">{{ broker.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button class="btn btn-primary btn-large" id="runAudit" disabled>
+    Run My Audit
+  </button>
+
+  <div class="status-bar" id="statusBar" style="display:none">
+    <div class="spinner"></div>
+    <span id="statusText">Uploading...</span>
+  </div>
+  <div class="error-bar" id="errorBar" style="display:none"></div>
+</div>
+
+<div class="features-grid">
+  <div class="feature-card">
+    <div class="feature-icon">&#128200;</div>
+    <h3>Cash Sweep Analysis</h3>
+    <p>See exactly how much APY you're leaving on the table with your current broker's sweep account.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">&#9878;</div>
+    <h3>Options Cost Compare</h3>
+    <p>Compare per-contract fees across 5 top brokers. Small differences compound significantly.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">&#128181;</div>
+    <h3>Switch &amp; Save Report</h3>
+    <p>Get a full break-even analysis including ACATS transfer fees and monthly savings projections.</p>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}WealthFlow Optimizer{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">&#9670;</span>
+      <span class="brand-name">WealthFlow <span class="brand-accent">Optimizer</span></span>
+    </div>
+    <div class="nav-tagline">Fee Intelligence Platform</div>
+  </nav>
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer">
+    <p>WealthFlow Optimizer &mdash; For informational purposes only. Not financial advice.</p>
+  </footer>
+
+  <!-- Chat Bubble -->
+  <div class="chat-bubble-btn" id="chatToggle" title="Ask your financial advisor">
+    <span class="chat-bubble-icon" id="chatIcon">&#128172;</span>
+  </div>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <span class="chat-avatar">&#129302;</span>
+        <div>
+          <div class="chat-title">AI Financial Advisor</div>
+          <div class="chat-subtitle">Ask about your audit results</div>
+        </div>
+      </div>
+      <button class="chat-close" id="chatClose">&#10005;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg advisor">
+        <span class="msg-bubble">Hi! I've reviewed your portfolio audit. Ask me anything about your results — fee comparisons, switching brokers, or what the numbers mean.</span>
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" type="text" placeholder="Ask a question..." autocomplete="off" />
+      <button class="chat-send" id="chatSend">&#10148;</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "brokers": [
+    {"id": "fidelity",  "name": "Fidelity Investments",       "sweep_apy": 0.0331, "annual_maintenance_fee": 0,   "acats_exit_fee": 0,   "options_contract_fee": 0.65},
+    {"id": "schwab",    "name": "Charles Schwab",              "sweep_apy": 0.0015, "annual_maintenance_fee": 0,   "acats_exit_fee": 50,  "options_contract_fee": 0.65},
+    {"id": "vanguard",  "name": "Vanguard",                   "sweep_apy": 0.0335, "annual_maintenance_fee": 25,  "acats_exit_fee": 100, "options_contract_fee": 1.00},
+    {"id": "etrade",    "name": "E*TRADE",                    "sweep_apy": 0.0001, "annual_maintenance_fee": 0,   "acats_exit_fee": 75,  "options_contract_fee": 0.65},
+    {"id": "ibkr_pro",  "name": "Interactive Brokers Pro",    "sweep_apy": 0.0314, "annual_maintenance_fee": 0,   "acats_exit_fee": 0,   "options_contract_fee": 0.15}
+  ]
+}

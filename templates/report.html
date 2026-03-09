@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}WealthFlow Optimizer — Audit Report{% endblock %}
+{% block content %}
+<div class="report-header">
+  <a href="/" class="btn btn-ghost">&larr; New Audit</a>
+  <h1 class="report-title">Portfolio Audit Report</h1>
+  <div id="reportMeta" class="report-meta"></div>
+</div>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner spinner-large"></div>
+  <p>Analyzing your portfolio...</p>
+</div>
+
+<!-- Module 1: Health Score -->
+<div class="report-module" id="moduleHealth" style="display:none">
+  <h2 class="module-title">Portfolio Health Score</h2>
+  <div class="health-layout">
+    <div class="health-chart-wrap">
+      <canvas id="healthGauge" width="220" height="220"></canvas>
+      <div class="health-score-overlay">
+        <span id="healthScoreNum" class="score-number">--</span>
+        <span id="healthBand" class="score-band">--</span>
+      </div>
+    </div>
+    <div class="health-penalties" id="healthPenalties"></div>
+  </div>
+</div>
+
+<!-- Module 2: Interest Leakage Tracker -->
+<div class="report-module" id="moduleSweep" style="display:none">
+  <h2 class="module-title">Cash Sweep Opportunity Loss</h2>
+  <div class="chart-container">
+    <canvas id="sweepBarChart"></canvas>
+  </div>
+  <p class="chart-note" id="sweepNote"></p>
+</div>
+
+<!-- Module 3: Comparison Table -->
+<div class="report-module" id="moduleTable" style="display:none">
+  <h2 class="module-title">5-Broker Fee Comparison</h2>
+  <div class="table-wrap">
+    <table class="comparison-table" id="comparisonTable">
+      <thead>
+        <tr>
+          <th data-sort="name">Broker</th>
+          <th data-sort="sweep_apy">Sweep APY</th>
+          <th data-sort="sweep_loss">Annual Sweep Δ</th>
+          <th data-sort="options_savings">Options Δ/yr</th>
+          <th data-sort="total_savings">Total Savings/yr</th>
+          <th data-sort="exit_fee">Exit Fee</th>
+          <th data-sort="breakeven">Break-even</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="comparisonBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Module 4: Executive Summary -->
+<div class="report-module" id="moduleSummary" style="display:none">
+  <h2 class="module-title">AI Executive Summary</h2>
+  <div class="summary-panel" id="summaryPanel"></div>
+</div>
+
+<div class="report-module" id="moduleFunds" style="display:none">
+  <h2 class="module-title">Flagged Holdings</h2>
+  <p class="flag-note" id="flagNote"></p>
+</div>
+
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/report.js') }}"></script>
+{% endblock %}

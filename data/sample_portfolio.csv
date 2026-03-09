@@ -1,0 +1,6 @@
+Account_Type,Symbol,ISIN,Description,Quantity,Current_Price,Market_Value,Cost_Basis,Asset_Class
+Individual,VOO,US9229083632,Vanguard S&P 500 ETF,105.5,512.40,54058.20,41000.50,Equity
+Individual,AAPL,US0378331005,Apple Inc.,45,178.25,8021.25,6500.00,Equity
+Individual,BND,US9219378356,Vanguard Total Bond Market,200,72.15,14430.00,15000.00,Fixed Income
+Individual,O,US7402661036,Realty Income Corp,100,52.30,5230.00,5500.00,Real Estate
+Individual,CASHX,,Cash & Sweep Vehicle,5500.25,1.00,5500.25,5500.25,Cash
